@@ -35,5 +35,5 @@
                    (down 8)
                    (forward 2)))
 
-  (check-equal? 150 (solution-one sample))
-  (check-equal? 900 (solution-two sample)))
+  (check-equal? (solution-one sample) 150)
+  (check-equal? (solution-two sample) 900))

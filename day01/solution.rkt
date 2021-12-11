@@ -10,7 +10,7 @@
   (define sample '(199 200 208 210 200 207 240 269 260 263))
   (define pairs (zip sample (drop sample 1)))
 
-  (check-equal? 7 (count increase? pairs)))
+  (check-equal? (count increase? pairs) 7))
 
 (define input (map string->number (file->lines "input.txt")))
 
