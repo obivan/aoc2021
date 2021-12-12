@@ -18,8 +18,8 @@
 (define (decode-life-support diagnostics bit-width op)
   (for/fold ([remaining diagnostics]
              #:result (first remaining))
-            ([i (reverse (range 0 bit-width))])
-    #:break (eq? 1 (length remaining))
+            ([i (reverse (range 0 bit-width))]
+             #:break (eq? 1 (length remaining)))
     (define criteria (common remaining i op))
     (filter (lambda (n) (eq? (bit-at n i) criteria))
             remaining)))
