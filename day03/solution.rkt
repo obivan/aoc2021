@@ -4,7 +4,7 @@
 
 (define (common numbers bit op)
   (define bits (map (curryr bit-at bit) numbers))
-  (for/fold ([zeroes 0] [ones 1] #:result (if (op zeroes ones) 0 1))
+  (for/fold ([zeroes 0] [ones 0] #:result (if (op zeroes ones) 0 1))
             ([b bits])
     (cond
       [(eq? 0 b) (values (add1 zeroes) ones)]
@@ -36,8 +36,8 @@
   (define bit-width (string-length (first bitstrings)))
   (define diagnostics (map (curryr string->number 2) bitstrings))
 
-  (define oxygen (decode-life-support diagnostics bit-width >=))
-  (define co2 (decode-life-support diagnostics bit-width <))
+  (define oxygen (decode-life-support diagnostics bit-width >))
+  (define co2 (decode-life-support diagnostics bit-width <=))
   (* co2 oxygen))
 
 (define bitstrings (file->lines "input.txt"))
