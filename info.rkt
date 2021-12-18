@@ -1,6 +1,6 @@
 #lang info
 (define collection "aoc2021")
-(define deps '("base" "threading"))
+(define deps '("base" "threading" "math-lib"))
 (define build-deps '("rackunit-lib"))
 (define pkg-desc "Advent of code 2021")
 (define version "0.1")
